@@ -30,7 +30,8 @@ void read_links(){
         while (links_file >> link){
             // cout << link << endl; // print links test
             
-            ShellExecute(0, 0, link, 0, 0 , SW_SHOW );  
+            // open links
+            system(std::string("start " + link).c_str()); 
         }
 
         // close file
