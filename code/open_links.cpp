@@ -9,14 +9,16 @@ using namespace std;
 void read_links(){
 
     // define variable
-    ifstream links_file;
+    ifstream links_file ;
 
     // open path (relative)
-    links_file.open("../start_tabs_project/custom_links.txt");
+    links_file.open("custom_links.txt");
 
     // check if file opened successfully 
     if (!links_file) {
         cout << "ERROR: Unable to open file datafile.txt \n";
+        // cout << "Press any key to continue";
+        system("pause");
             exit(1);   // call system to stop
     }
 
@@ -30,8 +32,9 @@ void read_links(){
         while (links_file >> link){
             // cout << link << endl; // print links test
             
-            // open links
-            system(std::string("start " + link).c_str()); 
+            // open links (convert string to a c_str())
+            ShellExecute(NULL, "open", link.c_str(), NULL, NULL, SW_SHOWNORMAL);
+            // system(std::string("start " + link).c_str()); 
         }
 
         // close file
