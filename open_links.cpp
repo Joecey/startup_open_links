@@ -2,6 +2,7 @@
 #include <fstream>  // library to read txt files
 #include <windows.h>
 #include <shellapi.h>
+#include <string.h>   // string functions
 
 using namespace std;
 
@@ -46,7 +47,36 @@ void read_links(){
 // run main code here
 int main(){
 
-    read_links();
-    
+    // no options
+    // 3 long array, string 100 characters long max
+    char arr [4][100] = {"N", "n", "No", "no"};
+
+    char answer[100];
+    cout << "Would you like to open default tabs? [Y/n] \n";
+    cin >> answer;
+
+    // check arr array for no option 
+    int score = 0;
+    int i;
+    for (i = 0; i < 4; i++){
+
+        if (strcmp(arr[i], answer) == 0){
+            score++;
+        }
+
+
+    }
+    // check what option is being made (this is such a dumb way of doing it lmao)
+    if (score > 0){
+   
+        cout << "canelling operation... \n";
+        system("pause");
+    }
+
+    else{
+
+        read_links();
+    }
+
     return 0;
 }
