@@ -74,7 +74,7 @@ int main(){
     }
 
     else{
-
+        // run read links function
         read_links();
     }
 
